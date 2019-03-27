@@ -1,0 +1,51 @@
+<mat-toolbar style="background: #fff;">
+  <span class="me-lead">product details</span>
+  <span class="me-lead" *ngIf="project"> ({{project.displayText}})</span>
+</mat-toolbar>
+
+
+<div class="container">
+  <div class="row">
+   <div class="col">
+     <mat-form-field>
+       <mat-select placeholder="Select Area" [(ngModel)] = "selectedcate1" (selectionChange)="fetchFilterData()" >
+         <mat-option *ngFor="let cat of categories" [value]="cat.categories" >
+           {{cat.categories}}
+         </mat-option>
+       </mat-select>
+     </mat-form-field>
+   </div>
+    <mat-form-field>
+      <mat-select placeholder="Status" [(ngModel)]="selectedcate2" name="status" (selectionChange)="fetchFilterData()">
+        <mat-option *ngFor="let cat of categories" [value]="cat.categories">
+          {{cat.categories}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    
+  </div>
+
+
+<div class="example-container mat-elevation-z2">
+    <table mat-table [(dataSource)]="dataSource">
+      <ng-container matColumnDef="outletid">
+        <th mat-header-cell *matHeaderCellDef> product name </th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+
+      <ng-container matColumnDef="outletName">
+        <th mat-header-cell *matHeaderCellDef> product price </th>
+        <td mat-cell *matCellDef="let element"> {{element.price}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="outletName">
+        <th mat-header-cell *matHeaderCellDef> product categories </th>
+        <td mat-cell *matCellDef="let element"> {{element.categories}}</td>
+      </ng-container>
+
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+ </div> 
