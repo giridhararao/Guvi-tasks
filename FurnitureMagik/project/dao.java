@@ -12,7 +12,7 @@ import java.util.logging.Logger;
 
 import javax.ws.rs.core.Response;
 
-public class Dao{
+public class dao{
   public statis ArrayList<DataModel> getalldata(String category1, String category2){
    ArrayList<DataModel> dataModels =new ArrayList<>();
   try{
