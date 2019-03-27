@@ -31,7 +31,7 @@ export class project {
 
   }
   fetchFilterData(){
-    this.poFranchiseControlServ.getPoFranchiseOutletStatus(this.selectedcate1,this.selectedcate2).subscribe((data:Array<allData>) => {
+    this.projectserv.getalldata(this.selectedcate1,this.selectedcate2).subscribe((data:Array<allData>) => {
       console.log(data.data);
       this.dataSource = data.data;
     });
